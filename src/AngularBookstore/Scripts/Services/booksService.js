@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    var bookService = angular.module('booksServices', ['ngResource']);
+    angular
+        .module('booksServices', ['ngResource'])
+        .factory('Book', Book);
 
-    bookService.factory('Books', ['$resource',
-    function bookService($resource) {
-        return $resource('api/books/', {}, {
-            query: { method: 'GET', params: {}, isArray: true }
-        });
-    }]);
+    Book.$inject = ['$resource'];
 
+    function Book($resource) {
+        return $resource('/api/books/:id');
+    }
 })();

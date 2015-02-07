@@ -3,11 +3,48 @@
 
     angular
         .module('app')
-        .controller('booksController', booksController);
+        .controller('BooksListController', BooksListController)
+        .controller('BooksAddController', BooksAddController)
+        .controller('BooksEditController', BooksEditController)
+        .controller('BooksDeleteController', BooksDeleteController);
 
-    booksController.$inject = ['$scope', 'Books']; 
+    BooksListController.$inject = ['$scope', 'Book'];
 
-    function booksController($scope, Books) {
-        $scope.books = Books.query();
+    function BooksListController($scope, Book) {
+        $scope.books = Book.query();
     }
+
+    BooksAddController.$inject = ['$scope', '$location', 'Book'];
+
+    function BooksAddController($scope, $location, Book) {
+        $scope.book = new Book();
+        $scope.add = function () {
+            $scope.book.$save(function () {
+                $location.path('/');
+            });
+        };
+    }
+    BooksEditController.$inject = ['$scope', '$routeParams', '$location', 'Book'];
+
+    function BooksEditController($scope, $routeParams, $location, Book) {
+        $scope.book = Book.get({ id: $routeParams.id });
+        $scope.edit = function () {
+            $scope.book.$save(function () {
+                $location.path('/');
+            });
+        };
+    }
+
+    BooksDeleteController.$inject = ['$scope', '$routeParams', '$location', 'Book'];
+
+    function BooksDeleteController($scope, $routeParams, $location, Book) {
+        $scope.book = Book.get({ id: $routeParams.id });
+        $scope.remove = function () {
+            $scope.book.$remove({ id: $scope.book.Id }, function () {
+                $location.path('/');
+            });
+        };
+    }
+
+
 })();
