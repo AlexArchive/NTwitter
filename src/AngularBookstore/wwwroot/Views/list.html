@@ -1,16 +1,17 @@
-﻿<div>
+﻿{{canEdit}}
+<div>
     <h1>List Books</h1>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th></th>
+                <th ng-show="canEdit"></th>
                 <th>Title</th>
                 <th>Author</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="book in books">
-                <td>
+                <td ng-show="canEdit">
                     <a href="/books/edit/{{book.Id}}" class="btn btn-default btn-xs">edit</a>
                     <a href="/books/delete/{{book.Id}}" class="btn btn-danger btn-xs">delete</a>
                 </td>
@@ -20,7 +21,7 @@
         </tbody>
     </table>
 
-    <p>
+    <p ng-show="canEdit">
         <a href="/books/add" class="btn btn-primary">Add New Book</a>
     </p>
 </div>

@@ -8,9 +8,10 @@
         .controller('BooksEditController', BooksEditController)
         .controller('BooksDeleteController', BooksDeleteController);
 
-    BooksListController.$inject = ['$scope', 'Book'];
+    BooksListController.$inject = ['$scope', 'Book','canEdit'];
 
-    function BooksListController($scope, Book) {
+    function BooksListController($scope, Book, canEdit) {
+        $scope.canEdit = canEdit;
         $scope.books = Book.query();
     }
 

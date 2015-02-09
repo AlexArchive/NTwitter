@@ -37,6 +37,7 @@ namespace AngularBookstore.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize("CanEdit", "true")]
         public IActionResult Post([FromBody]Book book)
         {
             if (ModelState.IsValid)
@@ -64,6 +65,7 @@ namespace AngularBookstore.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize("CanEdit", "true")]
         public IActionResult Delete(int id)
         {
             var movie = _booksDb.Books.FirstOrDefault(b => b.Id == id);

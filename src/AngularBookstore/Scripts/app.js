@@ -25,8 +25,8 @@
             .when('/books/delete/:id', {
                 templateUrl: '/Views/delete.html',
                 controller: 'BooksDeleteController'
-            });
-
+            })
+            .otherwise({ redirectTo: '/' });
         $locationProvider.html5Mode(true);
     }
 })();

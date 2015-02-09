@@ -18,8 +18,15 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-resource.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
     <script src="app.js"></script>
+
+    <script>
+        angular.module("app").value("canEdit", @ViewBag.CanEdit);
+    </script>
+
 </head>
 <body ng-cloak>
+    @ViewBag.Name / <a href="/account/signout" target="_self">sign out</a>
+
     <div class="container-fluid">
         <ng-view></ng-view>
     </div>
