@@ -19,9 +19,15 @@
     function BooksAddController($scope, $location, Book) {
         $scope.book = new Book();
         $scope.add = function () {
-            $scope.book.$save(function () {
-                $location.path('/');
-            });
+            $scope.book.$save(
+                // success
+                function () {
+                    $location.path('/');
+                },
+                // error
+                function (error) {
+                    $scope.error = 'Could not add book';
+                });
         };
     }
     BooksEditController.$inject = ['$scope', '$routeParams', '$location', 'Book'];
@@ -29,9 +35,15 @@
     function BooksEditController($scope, $routeParams, $location, Book) {
         $scope.book = Book.get({ id: $routeParams.id });
         $scope.edit = function () {
-            $scope.book.$save(function () {
-                $location.path('/');
-            });
+            $scope.book.$save(
+                // success
+                function () {
+                    $location.path('/');
+                },
+                // error
+                function (error) {
+                    $scope.error = 'Could not add book';
+                });
         };
     }
 
@@ -45,6 +57,4 @@
             });
         };
     }
-
-
 })();

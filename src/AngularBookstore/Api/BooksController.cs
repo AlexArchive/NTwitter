@@ -6,7 +6,7 @@ using System.Linq;
 namespace AngularBookstore.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class BooksController
+    public class BooksController : Controller
     {
 
         private readonly BooksDb _booksDb;
@@ -39,20 +39,28 @@ namespace AngularBookstore.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Book book)
         {
-            if (book.Id == 0)
+            if (ModelState.IsValid)
             {
-                _booksDb.Books.Add(book);
-                _booksDb.SaveChanges();
-                return new ObjectResult(book);
+                if (book.Id == 0)
+                {
+                    _booksDb.Books.Add(book);
+                    _booksDb.SaveChanges();
+                    return new ObjectResult(book);
+                }
+                else
+                {
+                    var original = _booksDb.Books.FirstOrDefault(b => b.Id == book.Id);
+                    original.Title = book.Title;
+                    original.Author = book.Author;
+                    original.Price = book.Price;
+                    original.PublishDate = book.PublishDate;
+                    _booksDb.SaveChanges();
+                    return new ObjectResult(original);
+                }
             }
-            else
-            {
-                var original = _booksDb.Books.FirstOrDefault(b => b.Id == book.Id);
-                original.Title = book.Title;
-                original.Author = book.Author;
-                _booksDb.SaveChanges();
-                return new ObjectResult(original);
-            }
+
+            return new HttpStatusCodeResult(400);
+
         }
 
         [HttpDelete("{id:int}")]
@@ -61,7 +69,7 @@ namespace AngularBookstore.Api.Controllers
             var movie = _booksDb.Books.FirstOrDefault(b => b.Id == id);
             _booksDb.Books.Remove(movie);
             _booksDb.SaveChanges();
-            return new HttpStatusCodeResult(200);
+            return new ObjectResult(200);
         }
 
     }

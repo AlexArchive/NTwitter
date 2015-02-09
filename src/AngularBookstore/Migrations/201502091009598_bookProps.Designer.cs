@@ -7,9 +7,25 @@ using System;
 namespace AngularBookstore.Migrations
 {
     [ContextType(typeof(AngularBookstore.Models.BooksDb))]
-    public class BooksDbModelSnapshot : ModelSnapshot
+    public partial class bookProps : IMigrationMetadata
     {
-        public override IModel Model
+        string IMigrationMetadata.MigrationId
+        {
+            get
+            {
+                return "201502091009598_bookProps";
+            }
+        }
+        
+        string IMigrationMetadata.ProductVersion
+        {
+            get
+            {
+                return "7.0.0-beta2-11909";
+            }
+        }
+        
+        IModel IMigrationMetadata.TargetModel
         {
             get
             {
