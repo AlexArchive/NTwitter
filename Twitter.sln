@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22512.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B839FCF0-95AA-4B68-B7D3-485BFCA79991}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Twitter", "src\Twitter\Twitter.kproj", "{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24220A1D-E96E-49E8-9AAF-9AFCD5D2BD4C}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+	ProjectSection(FolderGlobals) = preProject
+		global_1json__JSONSchema = http://json.schemastore.org/global
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{38C3D84F-72A7-4845-9CE6-CA04E3B2FC27}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Twitter.UnitTest", "tests\Twitter.UnitTest\Twitter.UnitTest.kproj", "{38E9941A-D2FC-435A-B292-83870A3EFF3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E9941A-D2FC-435A-B292-83870A3EFF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E9941A-D2FC-435A-B292-83870A3EFF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E9941A-D2FC-435A-B292-83870A3EFF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E9941A-D2FC-435A-B292-83870A3EFF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4BCE691-3474-4DAC-9A1D-1C2B08CF1589} = {B839FCF0-95AA-4B68-B7D3-485BFCA79991}
+		{38E9941A-D2FC-435A-B292-83870A3EFF3F} = {38C3D84F-72A7-4845-9CE6-CA04E3B2FC27}
+	EndGlobalSection
+EndGlobal
