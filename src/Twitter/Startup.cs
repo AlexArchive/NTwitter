@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
@@ -12,19 +11,12 @@ namespace Twitter
     {
         public IConfiguration Configuration { get; set; }
 
-        public Startup(IHostingEnvironment environment)
-        {
-            Configuration = new Configuration()
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFramework(Configuration)
+            services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ApplicationContext>();
-            services.AddIdentity<ApplicationUser, IdentityRole>(Configuration)
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
             services.AddMvc();
         }
