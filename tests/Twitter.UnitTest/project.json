@@ -1,17 +1,22 @@
 ﻿{
-    "version": "1.0.0-*",
-    "dependencies": {
-    },
+	"version": "1.0.0-*",
+	"dependencies": {
+		"Twitter": "1.0.0-*",
+		"Xunit.KRunner": "1.0.0-*"
+	},
 
-    "frameworks" : {
-        "aspnet50" : { 
-            "dependencies": {
-            }
-        },
-        "aspnetcore50" : { 
-            "dependencies": {
-                "System.Runtime": "4.0.20-beta-22416"
-            }
-        }
-    }
+	"frameworks": {
+		"aspnet50": {
+			"dependencies": {
+			}
+		},
+		"aspnetcore50": {
+			"dependencies": {
+				"System.Runtime": "4.0.20-beta-22416"
+			}
+		}
+	},
+	"commands": {
+		"test": "Xunit.KRunner"
+	}
 }
