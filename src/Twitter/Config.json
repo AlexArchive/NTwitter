@@ -1,0 +1,12 @@
+﻿{
+	"Data": {
+		"DefaultConnection": {
+			"ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=Twitter;Trusted_Connection=True;MultipleActiveResultSets=true"
+		}
+	},
+	"EntityFramework": {
+		"ApplicationContext": {
+			"ConnectionStringKey": "Data:DefaultConnection:ConnectionString"
+		}
+	}
+}
