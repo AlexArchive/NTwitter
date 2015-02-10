@@ -19,10 +19,7 @@ namespace Twitter.Controllers
             this.signInManager = signInManager;
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
+        public IActionResult Register() => View();
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
@@ -44,10 +41,7 @@ namespace Twitter.Controllers
             }
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -67,10 +61,9 @@ namespace Twitter.Controllers
             }
             else
             {
-                ModelState.AddModelError("","Invalid username or password.");
+                ModelState.AddModelError("", "Invalid username or password.");
                 return View(model);
             }
         }
-
     }
 }
