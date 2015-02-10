@@ -1,1 +1,10 @@
-﻿<h2>Login</h2>
+﻿@model Twitter.Models.LoginModel
+    
+@Html.ValidationSummary()
+@ViewBag.Message
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Login" />
+}
