@@ -1,1 +1,9 @@
-﻿<p>Hello, all.</p>
+﻿@using System.Security.Principal
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello, @User.Identity.GetUserName().</p>
+}
+else
+{
+    <p>Hello, all.</p>
+}

@@ -30,8 +30,8 @@ namespace Twitter.Controllers
             var result = await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                ViewBag.Message = "Success";
-                return View();
+                await signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectToAction("Index", "Home");
             }
             else
             {
