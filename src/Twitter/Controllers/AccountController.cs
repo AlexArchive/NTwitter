@@ -56,8 +56,7 @@ namespace Twitter.Controllers
                 false);
             if (status == SignInStatus.Success)
             {
-                ViewBag.Message = "Success";
-                return View();
+                return RedirectToAction("Index", "Home");
             }
             else
             {
