@@ -7,9 +7,25 @@ using Twitter.Data;
 namespace Twitter.Migrations
 {
     [ContextType(typeof(Twitter.Data.ApplicationContext))]
-    public class ApplicationContextModelSnapshot : ModelSnapshot
+    public partial class Tweets : IMigrationMetadata
     {
-        public override IModel Model
+        string IMigrationMetadata.MigrationId
+        {
+            get
+            {
+                return "201502112223352_Tweets";
+            }
+        }
+        
+        string IMigrationMetadata.ProductVersion
+        {
+            get
+            {
+                return "7.0.0-beta2-11909";
+            }
+        }
+        
+        IModel IMigrationMetadata.TargetModel
         {
             get
             {
