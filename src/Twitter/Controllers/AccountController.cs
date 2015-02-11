@@ -65,5 +65,13 @@ namespace Twitter.Controllers
                 return View(model);
             }
         }
+
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logout()
+        {
+            signInManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

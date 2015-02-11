@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Principal
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -12,10 +14,20 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @Html.ActionLink("Application name", "Index", "Home",null, new { @class = "navbar-brand" })
+                @Html.ActionLink("Twitter", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @if (!User.Identity.IsAuthenticated)
+                @if (User.Identity.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+                        </ul>
+                    }
+                }
+                else
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Register", "Register", "Account")</li>
