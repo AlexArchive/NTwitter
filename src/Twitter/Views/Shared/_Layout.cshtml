@@ -3,11 +3,32 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    @Html.ActionLink("Register", "Register", "Account")
-    @Html.ActionLink("Login", "Login", "Account")
-    @RenderBody()
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Application name", "Index", "Home",null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/js/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

@@ -28,3 +28,5 @@ nuget.exe
 debugSettings.json
 buildlog
 .vs/
+node_modules/
+bower_components/
