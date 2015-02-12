@@ -32,7 +32,7 @@ namespace Twitter.Controllers
             };
             await context.Tweets.AddAsync(tweet);
             await context.SaveChangesAsync();
-            return Content(tweet.Text);
+            return RedirectToAction("Index", "Profile", new { userName = user.UserName });
         }
     }
 }
