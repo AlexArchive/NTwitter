@@ -21,7 +21,7 @@ namespace Twitter.Controllers
         public IActionResult Index() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Index(TweetInput model)
+        public async Task<IActionResult> Tweet(TweetInput model)
         {
             var user = await context.Users.SingleAsync(u => u.Id == User.Identity.GetUserId());
             var tweet = new Tweet
