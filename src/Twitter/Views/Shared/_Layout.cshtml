@@ -19,6 +19,13 @@
             <div class="navbar-collapse collapse">
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Tweet", "Index", "Tweet")
+                        </li>
+                        <li>@Html.ActionLink("Profile", "Index", "Profile", new { userName = User.Identity.GetUserName() })</li>
+                    </ul>
+
                     using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
                         @Html.AntiForgeryToken()
