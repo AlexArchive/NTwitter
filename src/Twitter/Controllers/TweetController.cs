@@ -11,7 +11,6 @@ namespace Twitter.Controllers
 {
     [Authorize]
     public class TweetController : Controller
-
     {
         private readonly ApplicationContext context;
         public TweetController(ApplicationContext context)
