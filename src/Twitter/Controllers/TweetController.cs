@@ -4,8 +4,6 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Twitter.Models;
-using Twitter.Data;
-using Twitter.Data.Model;
 
 namespace Twitter.Controllers
 {
@@ -23,7 +21,8 @@ namespace Twitter.Controllers
         [HttpPost]
         public async Task<IActionResult> Tweet(TweetInput model)
         {
-            var user = await context.Users.SingleAsync(u => u.Id == User.Identity.GetUserId());
+            var user = await context.Users
+                .SingleAsync(u => u.Id == User.Identity.GetUserId());
             var tweet = new Tweet
             {
                 Author = user,

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
-using Twitter.Data.Model;
 using Twitter.Models;
 
 namespace Twitter.Controllers
@@ -41,7 +40,7 @@ namespace Twitter.Controllers
             }
         }
 
-        public IActionResult Login(string returnUrl)=>View();
+        public IActionResult Login() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]

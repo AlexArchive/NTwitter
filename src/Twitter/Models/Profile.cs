@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Twitter.Data.Model;
 
 namespace Twitter.Models
 {

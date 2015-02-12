@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Twitter.Data.Model
+namespace Twitter.Models
 {
     public class Tweet
     {

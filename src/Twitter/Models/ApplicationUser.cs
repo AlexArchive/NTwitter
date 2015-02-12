@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 
-namespace Twitter.Data.Model
+namespace Twitter.Models
 {
     public class ApplicationUser : IdentityUser
     {

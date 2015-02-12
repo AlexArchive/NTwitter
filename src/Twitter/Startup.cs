@@ -2,8 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
-using Twitter.Data;
-using Twitter.Data.Model;
+using Twitter.Models;
 
 namespace Twitter
 {

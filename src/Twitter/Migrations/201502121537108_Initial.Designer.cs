@@ -2,11 +2,11 @@ using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations.Infrastructure;
 using System;
-using Twitter.Data;
+using Twitter.Models;
 
 namespace Twitter.Migrations
 {
-    [ContextType(typeof(Twitter.Data.ApplicationContext))]
+    [ContextType(typeof(ApplicationContext))]
     public partial class Initial : IMigrationMetadata
     {
         string IMigrationMetadata.MigrationId

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using Twitter.Data;
 using Twitter.Models;
 
 namespace Twitter.Controllers
