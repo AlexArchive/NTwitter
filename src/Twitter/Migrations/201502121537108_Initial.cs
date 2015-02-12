@@ -74,6 +74,16 @@ namespace Twitter.Migrations
                     })
                 .PrimaryKey("PK_AspNetUsers", t => t.Id);
             
+            migrationBuilder.CreateTable("Tweet",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CreatedAt = c.DateTime(nullable: false),
+                        Text = c.String(),
+                        AuthorId = c.String()
+                    })
+                .PrimaryKey("PK_Tweet", t => t.Id);
+            
             migrationBuilder.AddForeignKey(
                 "AspNetRoleClaims",
                 "FK_AspNetRoleClaims_AspNetRoles_RoleId",
@@ -97,6 +107,14 @@ namespace Twitter.Migrations
                 "AspNetUsers",
                 new[] { "Id" },
                 cascadeDelete: false);
+            
+            migrationBuilder.AddForeignKey(
+                "Tweet",
+                "FK_Tweet_AspNetUsers_AuthorId",
+                new[] { "AuthorId" },
+                "AspNetUsers",
+                new[] { "Id" },
+                cascadeDelete: false);
         }
         
         public override void Down(MigrationBuilder migrationBuilder)
@@ -106,6 +124,8 @@ namespace Twitter.Migrations
             migrationBuilder.DropForeignKey("AspNetUserClaims", "FK_AspNetUserClaims_AspNetUsers_UserId");
             
             migrationBuilder.DropForeignKey("AspNetUserLogins", "FK_AspNetUserLogins_AspNetUsers_UserId");
+            
+            migrationBuilder.DropForeignKey("Tweet", "FK_Tweet_AspNetUsers_AuthorId");
             
             migrationBuilder.DropTable("AspNetRoles");
             
@@ -118,6 +138,8 @@ namespace Twitter.Migrations
             migrationBuilder.DropTable("AspNetUserRoles");
             
             migrationBuilder.DropTable("AspNetUsers");
+            
+            migrationBuilder.DropTable("Tweet");
         }
     }
 }

@@ -84,7 +84,7 @@ namespace Twitter.Migrations
                 
                 builder.Entity("Twitter.Data.Model.Tweet", b =>
                     {
-                        b.Property<string>("ApplicationUserId");
+                        b.Property<string>("AuthorId");
                         b.Property<DateTime>("CreatedAt");
                         b.Property<int>("Id")
                             .GenerateValueOnAdd();
@@ -109,7 +109,7 @@ namespace Twitter.Migrations
                 
                 builder.Entity("Twitter.Data.Model.Tweet", b =>
                     {
-                        b.ForeignKey("Twitter.Data.Model.ApplicationUser", "ApplicationUserId");
+                        b.ForeignKey("Twitter.Data.Model.ApplicationUser", "AuthorId");
                     });
                 
                 return builder.Model;

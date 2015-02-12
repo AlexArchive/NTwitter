@@ -14,7 +14,8 @@ namespace Twitter.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<ApplicationUser>().OneToMany(u => u.Tweets);
+            builder.Entity<ApplicationUser>()
+                .OneToMany(u => u.Tweets, t=> t.Author);
         }
     }
 }

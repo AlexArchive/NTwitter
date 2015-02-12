@@ -13,7 +13,7 @@ namespace Twitter.Migrations
         {
             get
             {
-                return "201502102004095_Initial";
+                return "201502121537108_Initial";
             }
         }
         
@@ -98,6 +98,16 @@ namespace Twitter.Migrations
                         b.ForRelational().Table("AspNetUsers");
                     });
                 
+                builder.Entity("Twitter.Data.Model.Tweet", b =>
+                    {
+                        b.Property<string>("AuthorId");
+                        b.Property<DateTime>("CreatedAt");
+                        b.Property<int>("Id")
+                            .GenerateValueOnAdd();
+                        b.Property<string>("Text");
+                        b.Key("Id");
+                    });
+                
                 builder.Entity("Microsoft.AspNet.Identity.IdentityRoleClaim`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
                     {
                         b.ForeignKey("Microsoft.AspNet.Identity.IdentityRole", "RoleId");
@@ -111,6 +121,11 @@ namespace Twitter.Migrations
                 builder.Entity("Microsoft.AspNet.Identity.IdentityUserLogin`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", b =>
                     {
                         b.ForeignKey("Twitter.Data.Model.ApplicationUser", "UserId");
+                    });
+                
+                builder.Entity("Twitter.Data.Model.Tweet", b =>
+                    {
+                        b.ForeignKey("Twitter.Data.Model.ApplicationUser", "AuthorId");
                     });
                 
                 return builder.Model;
