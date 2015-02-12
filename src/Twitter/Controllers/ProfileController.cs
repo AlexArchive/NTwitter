@@ -29,7 +29,9 @@ namespace Twitter.Controllers
                 var model = new Profile
                 {
                     UserName = user.UserName,
-                    Tweets = user.Tweets.AsEnumerable()
+                    Tweets = user.Tweets
+                        .OrderByDescending(t => t.CreatedAt)
+                        .AsEnumerable()
                 };
                 return View(model);
             }
