@@ -41,11 +41,11 @@ namespace Twitter.Controllers
             }
         }
 
-        public IActionResult Login() => View();
+        public IActionResult Login(string returnUrl)=>View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -56,7 +56,14 @@ namespace Twitter.Controllers
                 false);
             if (status == SignInStatus.Success)
             {
-                return RedirectToAction("Index", "Home");
+                if (Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
