@@ -1,4 +1,5 @@
 ﻿@model Twitter.Models.TweetInput
+@Html.ValidationSummary()
 @using (Html.BeginForm("Tweet", "Tweet"))
 {
     @Html.EditorForModel()
