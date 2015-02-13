@@ -1,0 +1,11 @@
+﻿@using System.Security.Principal
+@using Twitter.WebModel.Models
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello, @User.Identity.GetUserName().</p>
+    @Html.Partial("_ComposeTweetPartial", new TweetInput())
+}
+else
+{
+    <p>Hello, all.</p>
+}

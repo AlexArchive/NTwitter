@@ -1,8 +1,9 @@
-﻿{
+{
 	"version": "1.0.0-*",
 	"dependencies": {
 		"Twitter": "1.0.0-*",
-		"Xunit.KRunner": "1.0.0-*"
+		"Xunit.KRunner": "1.0.0-*",
+"TwitterWebModel": "1.0.0-*"
 	},
 
 	"frameworks": {

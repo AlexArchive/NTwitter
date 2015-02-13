@@ -1,0 +1,12 @@
+﻿@using Twitter.WebModel.Models
+@model Twitter.WebModel.Models.LoginModel
+    
+@Html.ValidationSummary()
+@ViewBag.Message
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorForModel()
+    <input type="submit" value="Login" />
+}

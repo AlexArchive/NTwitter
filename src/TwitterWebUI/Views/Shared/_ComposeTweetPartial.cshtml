@@ -1,0 +1,7 @@
+﻿
+@model Twitter.WebModel.Models.TweetInput
+@using (Html.BeginForm("Tweet", "Tweet"))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Tweet" />
+}

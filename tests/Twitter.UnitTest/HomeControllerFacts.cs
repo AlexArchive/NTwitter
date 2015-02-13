@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc;
-using Twitter.Controllers;
+using Twitter.WebModel.Controllers;
 using Xunit;
 
 namespace Twitter.UnitTest

@@ -1,0 +1,11 @@
+﻿@model Twitter.WebModel.Models.Profile
+
+<h2>Welcome</h2>
+<p>Welcome to @Model.UserName's profle.</p>
+<h2>Tweets</h2>
+@foreach (var tweet in Model.Tweets)
+{
+    <p>@tweet.Text</p>
+    <p>@tweet.CreatedAt</p>
+    <hr/>
+}
