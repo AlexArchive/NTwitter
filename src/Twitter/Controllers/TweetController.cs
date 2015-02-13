@@ -16,8 +16,6 @@ namespace Twitter.Controllers
             this.context = context;
         }
 
-        public IActionResult Index() => View();
-
         [HttpPost]
         public async Task<IActionResult> Tweet(TweetInput model)
         {
